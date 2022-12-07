@@ -1,0 +1,64 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+
+        <record model="ir.ui.view" id="a_b_c_form">
+            <field name="name">ABC</field>
+            <field name="model">a.b.c</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,in_progress,approved,rejected"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="xyz_id"/>
+                                <field name="t_f"/>
+                            </group>
+                            <group/>
+                        </group>
+                        <notebook>
+                            <page string="Approvals">
+                                <field name="approval_level_ids" widget="one2many">
+                                    <tree editable="bottom">
+                                        <field name="user_id"/>
+                                        <field name="sequence"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="a_b_c_list">
+            <field name="name">ABC list</field>
+            <field name="model">a.b.c</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="xyz_id"/>
+                    <field name="t_f"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- actions opening views on models -->
+        <record model="ir.actions.act_window" id="a_b_c_action_window">
+            <field name="name">ABC window</field>
+            <field name="res_model">a.b.c</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Top menu item -->
+        <menuitem name="configurable Approval " id="configurable_approval_cycle_menu_root"/>
+
+        <!-- menu categories -->
+        <menuitem name="ABC" id="a_b_c_menu_item" parent="configurable_approval_cycle_menu_root"
+                  action="a_b_c_action_window"/>
+        <menuitem name="XYZ" id="x_y_z_menu_item" parent="configurable_approval_cycle_menu_root"/>
+    </data>
+</odoo>

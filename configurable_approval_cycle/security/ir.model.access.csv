@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_abc_a_a_a,access_abc_a_a_a_user,model_a_b_c,configurable_approval_cycle.a_a_a,1,0,1,0
+access_abc_b_b_b,access_abc_b_b_b_user,model_a_b_c,configurable_approval_cycle.b_b_b,1,1,0,0
+access_abc_admin,access_abc_admin,model_a_b_c,base.group_system,1,1,1,1
+
+access_xyz_b_b_b,access_xyz_base_user,model_x_y_z,base.group_user,1,1,0,0
+access_xyz_admin,access_xyz_admin,model_x_y_z,base.group_system,1,1,1,1
+
+access_approval_level_admin,access_approval_level_admin,model_approval_level,base.group_system,1,1,1,1

@@ -1,0 +1,55 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+        <record model="ir.ui.view" id="x_y_z_form">
+            <field name="name">XYZ</field>
+            <field name="model">x.y.z</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                            </group>
+                            <group/>
+                        </group>
+                        <notebook>
+                            <page string="Approvals">
+                                <field name="approval_level_ids" widget="one2many">
+                                    <tree editable="bottom">
+                                        <field name="user_id"/>
+                                        <field name="sequence"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="x_y_z_list">
+            <field name="name">XYZ list</field>
+            <field name="model">x.y.z</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- actions opening views on models -->
+        <record model="ir.actions.act_window" id="x_y_z_action_window">
+            <field name="name">XYZ window</field>
+            <field name="res_model">x.y.z</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Top menu item -->
+
+        <!-- menu categories -->
+        <menuitem name="Configuration" id="configuration_menu_item" parent="configurable_approval_cycle_menu_root"/>
+        <menuitem name="XYZ" id="x_y_z_menu_item" parent="configuration_menu_item"
+                  action="x_y_z_action_window"/>
+    </data>
+</odoo>
