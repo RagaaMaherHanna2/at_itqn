@@ -48,7 +48,7 @@
         <!-- Top menu item -->
 
         <!-- menu categories -->
-        <menuitem name="Configuration" id="configuration_menu_item" parent="configurable_approval_cycle_menu_root"/>
+        <menuitem name="Configuration" id="configuration_menu_item" parent="configurable_approval_cycle_menu_root" groups=""/>
         <menuitem name="XYZ" id="x_y_z_menu_item" parent="configuration_menu_item"
                   action="x_y_z_action_window"/>
     </data>

@@ -8,23 +8,32 @@
             <field name="arch" type="xml">
                 <form>
                     <header>
-                        <field name="state" widget="statusbar" statusbar_visible="draft,in_progress,approved,rejected"/>
+                        <button name="action_approve"
+                                string="Approve" type="object" class="oe_highlight"
+                                attrs="{'invisible': [('check_approve_visibility', '!=', True)]}"/>
+                        <button name="action_reject"
+                                string="Reject" type="object" class="oe_highlight"
+                                attrs="{'invisible': [('check_approve_visibility', '!=', True)]}"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,progress,approved,rejected"/>
                     </header>
                     <sheet>
                         <group>
                             <group>
                                 <field name="name"/>
                                 <field name="xyz_id"/>
+                                <field name="check_approve_visibility"/>
                                 <field name="t_f"/>
+                                <field name="next_approver_id"/>
                             </group>
                             <group/>
                         </group>
                         <notebook>
                             <page string="Approvals">
-                                <field name="approval_level_ids" widget="one2many">
+                                <field name="approval_level_status_ids" widget="one2many">
                                     <tree editable="bottom">
                                         <field name="user_id"/>
                                         <field name="sequence"/>
+                                        <field name="state"/>
                                     </tree>
                                 </field>
                             </page>
